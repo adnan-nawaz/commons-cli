@@ -22,11 +22,11 @@ jobs:
         uses: docker/setup-qemu-action@v2
   
       - 
-        name: set up Docker buildx
+        name: Set up Docker buildx
         uses: docker/setup-buildx-action@v2
         
       -
-        name: login to Docker Hub
+        name: Login to Docker Hub
         uses: docker/login-action@v2 
         
         with:
@@ -35,8 +35,8 @@ jobs:
       
       - 
         name: Build and push
-        uses: docker/build-push-activation@4
+        uses: docker/build-push-action@v4
         with:
-          Push: tru
+          Push: true
           tags: adnan-nawaz/commons-cli:latest
       
