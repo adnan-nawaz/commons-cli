@@ -45,4 +45,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           Push: true
-          tags: adnan-nawaz/commons-cli:adnan:latest
+          tags: adnan-nawaz/commons-cli:latest
