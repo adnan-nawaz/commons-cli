@@ -47,7 +47,7 @@ public interface CommandLineParser {
     /*
      * To maintain binary compatibility, this is commented out. It is still in the abstract Parser class, so most users will
      * still reap the benefit. CommandLine parse(Options options, String[] arguments, Properties properties) throws
-     * ParseException;
+
      */
 
     /**
