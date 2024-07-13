@@ -409,6 +409,10 @@ public class DefaultParser implements CommandLineParser {
     /**
      * Sets the values of Options using the values in {@code properties}.
      *
+     * 
+     * 
+     * 
+     * 
      * @param properties The value properties to be processed.
      */
     private void handleProperties(final Properties properties) throws ParseException {
