@@ -5,16 +5,13 @@
   The ASF licenses this file to You under the Apache License, Version 2.0
   (the "License"); you may not use this file except in compliance with
   the License.  You may obtain a copy of the License at
-
       http://www.apache.org/licenses/LICENSE-2.0
-
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
  */
-
 package org.apache.commons.cli;
 
 import java.util.ArrayList;
@@ -45,10 +42,10 @@ public class GnuParser extends Parser {
     @Override
     protected String[] flatten(final Options options, final String[] arguments, final boolean stopAtNonOption) {
         final List<String> tokens = new ArrayList<>();
-
         boolean eatTheRest = false;
 
-        for (int i = 0; i < arguments.length; i++) {
+        int i = 0;
+        while (i < arguments.length) {
             final String arg = arguments[i];
 
             if ("--".equals(arg)) {
@@ -58,7 +55,6 @@ public class GnuParser extends Parser {
                 tokens.add("-");
             } else if (arg.startsWith("-")) {
                 final String opt = Util.stripLeadingHyphens(arg);
-
                 if (options.hasOption(opt)) {
                     tokens.add(arg);
                 } else if (opt.indexOf('=') != -1 && options.hasOption(opt.substring(0, opt.indexOf('=')))) {
@@ -77,9 +73,12 @@ public class GnuParser extends Parser {
                 tokens.add(arg);
             }
 
+            i++;
+
             if (eatTheRest) {
-                for (i++; i < arguments.length; i++) { // NOPMD
+                while (i < arguments.length) {
                     tokens.add(arguments[i]);
+                    i++;
                 }
             }
         }
